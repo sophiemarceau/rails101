@@ -4,9 +4,12 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.all
   end
+  
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts
   end
+
   def edit
 
   end
@@ -33,7 +36,7 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
 
-  
+
     @group.destroy
     flash[:alert] = "Group deleted"
     redirect_to groups_path
