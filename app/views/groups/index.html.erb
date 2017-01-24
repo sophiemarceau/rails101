@@ -1,12 +1,13 @@
 <div class="col-md-12">
   <div class="group">
-    <% link_to("New group",new_group_path,class:"btn btn-primary pull-right") %>
+    <%= link_to("New group",new_group_path,class:"btn btn-primary pull-right") %>
     <table class="table table-hover">
       <thead>
         <tr>
           <td>#</td>
           <td>Title</td>
           <td>Description</td>
+          <td>Creator</td>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,7 @@
             <td><%= group.description %></td>
             <td><%= link_to("Edit",edit_group_path(group),class:"btn btn-sm btn-default")%></td>
             <td><%= link_to("Delete",group_path(group),class:"btn btn-sm btn-default",method: :delete,data:{confirm:"Are you sure?"})%></td>
+            <td><%= group.user.email %></td>
           </tr>
         <% end %>
       </tbody>
