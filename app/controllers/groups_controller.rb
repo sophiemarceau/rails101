@@ -52,7 +52,7 @@ class GroupsController < ApplicationController
   end
   def quit
     @group = Group.find(params[:id])
-    if current_user.is_member_of?(group)
+    if current_user.is_member_of?(@group)
       current_user.quit!(@group)
       flash[:alert] = "已退出讨论版！"
     else
